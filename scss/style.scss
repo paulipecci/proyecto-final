@@ -1,12 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Aldrich&display=swap");
+
+$light-background-color: #ccb5b5;
+$dark-background-color: #6d5656;
+
+@mixin regular-padding {
+  padding: 12px;
+}
+
+@mixin flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Aldrich", sans-serif; }
+  font-family: "Aldrich", sans-serif;
+}
 
 body {
-  background: #6d5656; }
+  background: $dark-background-color;
+}
 
 .main-body {
   height: 100vh;
@@ -16,68 +31,87 @@ body {
   background-position: center 20%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; }
+  justify-content: space-between;
+}
 
 .contenedor {
-  padding: 12px;
-  display: flex;
-  align-items: center;
+  @include regular-padding;
+  @include flex-align-center;
   background-color: black;
   color: white;
   flex-direction: row;
-  justify-content: space-around; }
-  .contenedor p {
-    font-size: 20px; }
+  justify-content: space-around;
+
+  p {
+    font-size: 20px;
+  }
+}
 
 .contenedor-iconos {
-  padding: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; }
+  @include regular-padding;
+  @include flex-align-center;
+  justify-content: space-between;
+}
 
-.links a {
-  color: black;
-  text-decoration: none;
-  display: block; }
+.links {
+  a {
+    color: black;
+    text-decoration: none;
+    display: block;
+  }
+}
 
 .titulo {
   font-size: 32px;
-  text-align: center; }
+  text-align: center;
+}
 
 .navbar {
-  background-color: #ccb5b5;
+  background-color: $light-background-color;
   margin-top: 16px;
   text-align: center;
   display: flex;
   justify-content: space-between;
-  padding: 15px 60px; }
-  .navbar a {
+  padding: 15px 60px;
+
+  a {
     font-size: 26px;
     text-decoration: none;
-    color: black; }
-  .navbar:hover {
-    border: 1px solid #df83df;
-    margin: 10px; }
+    color: black;
+  }
+
+  &:hover {
+    border: 1px solid rgb(223, 131, 223);
+    margin: 10px;
+  }
+}
 
 .section {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  text-align: center; }
-  .section h2 {
-    font-size: 28px; }
-  .section h3 {
+  text-align: center;
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
     font-size: 24px;
-    margin-bottom: 2rem; }
-  .section p {
+    margin-bottom: 2rem;
+  }
+
+  p {
     font-size: 20px;
     margin-bottom: 2rem;
-    line-height: 120%; }
+    line-height: 120%;
+  }
+}
 
 .parrafo {
   display: grid;
-  background-color: #ccb5b5;
+  background-color: $light-background-color;
   grid-template-columns: repeat(4, 25%);
   padding: 1em;
   column-gap: 100px;
@@ -86,59 +120,89 @@ body {
   text-align: center;
   padding: 20px 60px;
   justify-content: space-between;
-  margin-block-end: 100px; }
+  margin-block-end: 100px;
+}
 
 .redes {
-  padding: 12px;
-  text-align: end; }
-  .redes img {
-    margin-left: 8px; }
+  @include regular-padding;
+  text-align: end;
+
+  img {
+    margin-left: 8px;
+  }
+}
 
 .sectionsecundaria {
-  display: flex;
-  align-items: center;
+  @include flex-align-center;
   flex-direction: row;
   flex-wrap: wrap;
   text-align: center;
   justify-content: space-around;
-  gap: 30px; }
-  .sectionsecundaria div {
+  gap: 30px;
+
+  div {
     background-color: white;
-    border: 8px solid black; }
-  .sectionsecundaria img {
-    width: 500px; }
-  .sectionsecundaria p {
-    display: flex;
-    align-items: center;
+    border: 8px solid black;
+  }
+
+  img {
+    width: 500px;
+  }
+
+  p {
+    @include flex-align-center;
     height: 30px;
-    justify-content: center; }
+    justify-content: center;
+  }
+}
 
 main {
   padding: 40px 20px;
-  height: 100%; }
+  height: 100%;
+}
 
 @media screen and (max-width: 1024px) {
   .navbar {
-    padding: 15px 40px; }
-    .navbar a {
-      font-size: 20px; } }
+    padding: 15px 40px;
+
+    a {
+      font-size: 20px;
+    }
+  }
+}
 
 @media screen and (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    padding: 20px; }
-    .navbar a {
+    padding: 20px;
+
+    a {
       margin-bottom: 8px;
-      font-size: 14px; }
+      font-size: 14px;
+    }
+  }
+
   .contenedor p {
     font-size: 16px;
-    line-height: 140%; }
-  .sectionsecundaria div {
-    width: 100%; }
-  .sectionsecundaria img {
-    width: 100%; }
+    line-height: 140%;
+  }
+
+  .sectionsecundaria {
+    div {
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
   .parrafo {
     flex-direction: column;
-    padding: 20px 25px; }
-    .parrafo p {
-      margin-bottom: 20px; } }
+    padding: 20px 25px;
+
+    p {
+      margin-bottom: 20px;
+    }
+  }
+}
