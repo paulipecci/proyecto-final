@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Aldrich&display=swap");
 
-$light-background-color: #ccb5b5;
-$dark-background-color: #6d5656;
+@import "variables";
 
 @mixin regular-padding {
   padding: 12px;
